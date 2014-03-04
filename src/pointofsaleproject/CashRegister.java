@@ -7,18 +7,17 @@ package pointofsaleproject;
 public class CashRegister implements InputStrategy {
     
     private OutputStrategy output;
-    private PaymentStrategy payment;
     private boolean saleInProgress;
 
     
     public void startSale() {
         saleInProgress = true;
-        OutputStrategy r = new Receipt();
+        OutputStrategy r = new PaperReceipt();
         this.output = r;
     }
     
     @Override
-    public void addPurchaseToSale(String prodId, double qty) {
+    public void addPurchaseToSale(String prodId, int qty) {
         if (!saleInProgress) {
             startSale();
         }

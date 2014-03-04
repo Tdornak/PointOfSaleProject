@@ -6,8 +6,14 @@ package pointofsaleproject;
  */
 public class FakeDatabase implements InventoryStrategy{
 
-    private Product[] products = {new Product("A001", "Chips", 2.00, new QuantityDiscount()),
-        new Product("B001", "Cheese", 8.00, new PercentDiscount()),
+    /*
+        QuantityDiscount Constructor takes double:percent and int:min_Qty
+        PercentDiscount constructor takes double:percent
+        NoDiscount has no constructor
+    */
+    
+    private Product[] products = {new Product("A001", "Chips", 2.00, new QuantityDiscount(10, 5)),
+        new Product("B001", "Cheese", 8.00, new PercentDiscount(10)),
         new Product("C001", "Pizza", 5.00, new NoDiscount())};
 
     

@@ -12,7 +12,7 @@ package pointofsaleproject;
  */
 public interface OutputStrategy {
 
-    public abstract void addPurchaseToOutput(String prodId, double qty);
+    public abstract void addPurchaseToOutput(String prodId, int qty);
 
     public abstract void createOutput(double amtPaid);
 

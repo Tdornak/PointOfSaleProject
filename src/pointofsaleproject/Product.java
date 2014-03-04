@@ -22,26 +22,14 @@ public class Product {
         this.setDiscount(discount);
     }
     
-    public double getAmtSaved(double qty) {
+    public double getAmtSaved(int qty) {
         return discount.getAmtSaved(price, qty);
     }
     
-    public double getDiscountedTotal(double qty) {
+    public double getDiscountedTotal(int qty) {
         return discount.getDiscountedTotal(price, qty);
     }
 
-    @Override 
-    public String toString() {
-        NumberFormat fmt = NumberFormat.getCurrencyInstance();
-        String string = this.getProductId() + "    " + this.getName();
-        StringBuilder s = new StringBuilder(string);
-        for (int counter = 0; counter < 25 - this.getName().length(); counter++) {
-            s.append(" ");
-        }
-        s.append(fmt.format(getPrice()));
-        
-        return s.toString();      
-    }
     
     //setters
     public final void setProductId(String productId) {

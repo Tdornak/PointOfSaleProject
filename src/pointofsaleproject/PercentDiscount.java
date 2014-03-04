@@ -14,13 +14,18 @@ public class PercentDiscount implements DiscountStrategy {
     
     private double percent = .10;
 
+    public PercentDiscount(double percent) {
+        this.setPercent(percent);
+    }
+
+
     @Override
-    public double getAmtSaved(double price, double qty) {
+    public double getAmtSaved(double price, int qty) {
         return price * qty * percent;
     }
     
     @Override
-    public double getDiscountedTotal(double price, double qty) {
+    public double getDiscountedTotal(double price, int qty) {
         return price * qty - this.getAmtSaved(price, qty);
     }
     
@@ -37,14 +42,6 @@ public class PercentDiscount implements DiscountStrategy {
         
     }
      
-    
-    public static void main(String[] args) {
-        PercentDiscount p = new PercentDiscount();
-        
-        System.out.println("expected 2 got " + p.getAmtSaved(10, 2));
-        System.out.println("expected 18 got " + p.getDiscountedTotal(10, 2));
-    }
- 
     
 }
 

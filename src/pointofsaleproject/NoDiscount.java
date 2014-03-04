@@ -14,12 +14,12 @@ public class NoDiscount implements DiscountStrategy {
     
 
     @Override
-    public double getAmtSaved(double price, double qty) {
+    public double getAmtSaved(double price, int qty) {
         return 0;
     }
     
     @Override
-    public double getDiscountedTotal(double price, double qty) {
+    public double getDiscountedTotal(double price, int qty) {
         return 0;
     }
      

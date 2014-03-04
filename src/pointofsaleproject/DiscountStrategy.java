@@ -12,8 +12,8 @@ package pointofsaleproject;
  */
 public interface DiscountStrategy {
 
-    public abstract double getAmtSaved(double price, double qty);
+    public abstract double getAmtSaved(double price, int qty);
 
-    public abstract double getDiscountedTotal(double price, double qty);
+    public abstract double getDiscountedTotal(double price, int qty);
     
 }

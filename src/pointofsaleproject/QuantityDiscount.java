@@ -9,8 +9,14 @@ public class QuantityDiscount implements DiscountStrategy {
     private double percent = .10;
     private double min_Qty = 5;
 
+    public QuantityDiscount(double percent, double min_Qty) {
+        this.setPercent(percent);
+        this.setMin_Qty(min_Qty);
+    }
+
+
     @Override
-    public double getAmtSaved(double price, double qty) {
+    public double getAmtSaved(double price, int qty) {
         double amtSaved = 0;
         if (qty >= min_Qty) {
             amtSaved = price * qty * percent;
@@ -19,7 +25,7 @@ public class QuantityDiscount implements DiscountStrategy {
     }
     
     @Override
-    public double getDiscountedTotal(double price, double qty) {
+    public double getDiscountedTotal(double price, int qty) {
         double discountedTotal = price * qty;
         if (qty >= min_Qty) {
             discountedTotal = price * qty - this.getAmtSaved(price, qty);
@@ -45,7 +51,7 @@ public class QuantityDiscount implements DiscountStrategy {
         return min_Qty;
     }
 
-    public void setMin_Qty(double min_Qty) {
+    public final void setMin_Qty(double min_Qty) {
         if (min_Qty > 0) {
             this.min_Qty = min_Qty;
         } else {
@@ -54,16 +60,6 @@ public class QuantityDiscount implements DiscountStrategy {
         
     }
     
-    
-     
-    
-    public static void main(String[] args) {
-        QuantityDiscount p = new QuantityDiscount();
-        
-        System.out.println("expected 5 got " + p.getAmtSaved(10, 5));
-        System.out.println("expected 45 got " + p.getDiscountedTotal(10, 5));
-    }
- 
     
 }
 
